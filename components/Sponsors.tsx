@@ -14,7 +14,7 @@ const Sponsors: React.FC = () => {
   const { theme } = useTheme();
 
   return (
-    <section id="sponsorships" className={`py-24 ${theme === 'dark' ? 'bg-[#050505]' : 'bg-white'}`}>
+    <section id="sponsorships" className={`py-24 ${theme === 'dark' ? 'bg-[#050505]' : 'bg-[#f5f6fa]'}`}>
       <div className="max-w-7xl mx-auto px-6">
         <SectionTitle number="003" title="Partners & Institution" />
         <p className={`mb-12 max-w-2xl font-light ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>

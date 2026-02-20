@@ -18,7 +18,7 @@ const Adventures: React.FC = () => {
   const { theme } = useTheme();
 
   return (
-    <section id="adventures" className={`py-24 ${theme === 'dark' ? 'bg-[#030304]' : 'bg-gray-50'}`}>
+    <section id="adventures" className={`py-24 ${theme === 'dark' ? 'bg-[#030304]' : 'bg-[#eef0f4]'}`}>
       <div className="max-w-7xl mx-auto px-6">
         <SectionTitle number="007" title="Project Timeline" />
 

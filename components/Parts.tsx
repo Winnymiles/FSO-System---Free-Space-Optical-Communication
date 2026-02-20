@@ -30,7 +30,7 @@ const Parts: React.FC = () => {
   ];
 
   return (
-    <section id="parts" className={`py-24 relative overflow-hidden ${theme === 'dark' ? 'bg-black' : 'bg-gray-50'}`}>
+    <section id="parts" className={`py-24 relative overflow-hidden ${theme === 'dark' ? 'bg-black' : 'bg-[#eef0f4]'}`}>
       {/* Background Grid */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(0,50,150,0.2)_1px,transparent_1px),linear-gradient(90deg,rgba(0,50,150,0.2)_1px,transparent_1px)] bg-[size:40px_40px] opacity-10 pointer-events-none"></div>
 

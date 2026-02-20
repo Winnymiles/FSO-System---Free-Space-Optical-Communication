@@ -42,6 +42,38 @@
         backdrop-filter: blur(10px);
         border: 1px solid rgba(255, 255, 255, 0.05);
       }
+      [data-theme="light"] .glass-panel {
+        background: rgba(255, 255, 255, 0.6);
+        border: 1px solid rgba(0, 0, 0, 0.08);
+      }
+      /* Light mode scrollbar */
+      [data-theme="light"] ::-webkit-scrollbar-track {
+        background: #eef0f4;
+      }
+      [data-theme="light"] ::-webkit-scrollbar-thumb {
+        background: #c4c4c4;
+      }
+      [data-theme="light"] ::-webkit-scrollbar-thumb:hover {
+        background: #a0a0a0;
+      }
+      /* Hero globe Ken Burns animation */
+      @keyframes heroFloat {
+        0% {
+          transform: scale(1.05) translate(0%, 0%);
+        }
+        25% {
+          transform: scale(1.12) translate(-1.5%, -1%);
+        }
+        50% {
+          transform: scale(1.08) translate(1%, -1.5%);
+        }
+        75% {
+          transform: scale(1.15) translate(-0.5%, 0.5%);
+        }
+        100% {
+          transform: scale(1.05) translate(0%, 0%);
+        }
+      }
     </style>
   <script type="importmap">
 {

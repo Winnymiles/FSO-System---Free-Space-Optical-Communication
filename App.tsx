@@ -7,6 +7,7 @@ import Sponsors from './components/Sponsors';
 import Parts from './components/Parts';
 import Insights from './components/Insights';
 import Team from './components/Team';
+import Testimonials from './components/Testimonials';
 import Adventures from './components/Adventures';
 import Footer from './components/Footer';
 import { ThemeProvider, useTheme } from './contexts/ThemeContext';
@@ -18,7 +19,7 @@ const AppContent: React.FC = () => {
     <div className={`min-h-screen transition-colors duration-300 ${
       theme === 'dark'
         ? 'bg-[#030304] text-white'
-        : 'bg-gray-50 text-gray-900'
+        : 'bg-[#eef0f4] text-gray-900'
     }`}>
       <Navbar />
       <Hero />
@@ -28,6 +29,7 @@ const AppContent: React.FC = () => {
       <Parts />
       <Insights />
       <Team />
+      <Testimonials />
       <Adventures />
       <Footer />
     </div>

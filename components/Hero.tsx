@@ -5,12 +5,21 @@ const Hero: React.FC = () => {
   const { theme } = useTheme();
 
   return (
-    <section className="relative w-full h-screen min-h-[800px] flex flex-col justify-center overflow-hidden bg-[url('/csm_csm_Physik-Instrumente-Free-Space-Optical-Communication_1200x600_c625b1dad2.JPG--1920-20_f722b19a59.webp')] bg-cover bg-center">
+    <section className="relative w-full h-screen min-h-[800px] flex flex-col justify-center overflow-hidden">
+      {/* Animated Globe Background */}
+      <img
+        src="/csm_csm_Physik-Instrumente-Free-Space-Optical-Communication_1200x600_c625b1dad2.JPG--1920-20_f722b19a59.webp"
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+        style={{ animation: 'heroFloat 30s ease-in-out infinite' }}
+      />
+
       {/* Overlay - different for dark/light */}
-      <div className={`absolute inset-0 ${
+      <div className={`absolute inset-0 transition-colors duration-500 ${
         theme === 'dark'
-          ? 'bg-black/50 bg-gradient-to-b from-black/60 via-black/40 to-black/70'
-          : 'bg-gradient-to-r from-white/90 via-white/80 to-white/40'
+          ? 'bg-gradient-to-b from-black/60 via-black/40 to-black/70'
+          : 'bg-gradient-to-r from-slate-100/70 via-slate-50/40 to-transparent'
       }`}></div>
 
       {/* Grid Overlay */}

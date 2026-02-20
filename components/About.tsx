@@ -7,7 +7,7 @@ const About: React.FC = () => {
   const { theme } = useTheme();
 
   return (
-    <section id="about" className={`relative py-24 ${theme === 'dark' ? 'bg-[#050505]' : 'bg-white'}`}>
+    <section id="about" className={`relative py-24 ${theme === 'dark' ? 'bg-[#050505]' : 'bg-[#f5f6fa]'}`}>
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <SectionTitle number="001" title="Ambition & Purpose" />
 

@@ -20,7 +20,7 @@ const Insights: React.FC = () => {
   const maxTime = Math.max(...benchmarkData.map(d => d.time));
 
   return (
-    <section id="insights" className={`py-24 ${theme === 'dark' ? 'bg-[#050505]' : 'bg-white'}`}>
+    <section id="insights" className={`py-24 ${theme === 'dark' ? 'bg-[#050505]' : 'bg-[#f5f6fa]'}`}>
       <div className="max-w-7xl mx-auto px-6">
         <SectionTitle number="005" title="Validation & Benchmarking" />
 

@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
 
   return (
     <footer className={`relative border-t overflow-hidden ${
-      theme === 'dark' ? 'bg-black border-white/5' : 'bg-gray-100 border-gray-200'
+      theme === 'dark' ? 'bg-black border-white/5' : 'bg-[#e8eaf0] border-gray-200'
     }`}>
       {/* Thanks for Visiting Section */}
       <div className="relative py-20 overflow-hidden">

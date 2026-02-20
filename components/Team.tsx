@@ -19,8 +19,9 @@ const teamMembers = [
   {
     name: 'Samiksha',
     role: 'Vision & Integration',
-    image: '/Samiksha.jpeg',
+    image: '/Samiksha.jpg',
     linkedin: 'https://www.linkedin.com/in/samiksha-gupta-830352167/',
+    portfolio: 'https://samikshagupta2002.github.io/',
     contributions: [
       'Machine vision algorithm',
       'Camera Integration',
@@ -62,7 +63,7 @@ const Team: React.FC = () => {
   const { theme } = useTheme();
 
   return (
-    <section id="team" className={`py-24 overflow-hidden ${theme === 'dark' ? 'bg-black' : 'bg-gray-50'}`}>
+    <section id="team" className={`py-24 overflow-hidden ${theme === 'dark' ? 'bg-black' : 'bg-[#eef0f4]'}`}>
       <div className="max-w-7xl mx-auto px-6 mb-12">
         <SectionTitle number="006" title="Capstone Team" />
         <p className={`max-w-2xl font-light text-sm mb-8 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -88,7 +89,9 @@ const Team: React.FC = () => {
                   <img
                     src={person.image}
                     alt={person.name}
-                    className="w-full h-full object-cover transition-all duration-500"
+                    className={`w-full h-full object-cover transition-all duration-500 ${
+                      person.role === 'Advisor' ? 'object-[center_45%]' : ''
+                    }`}
                   />
                 </div>
                 <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-[10px] font-mono text-white">
@@ -129,7 +132,9 @@ const Team: React.FC = () => {
                   <img
                     src={member.image}
                     alt={member.name}
-                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                    className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ${
+                      member.name === 'Samiksha' ? 'object-[center_20%]' : 'object-top'
+                    }`}
                   />
                 </div>
 

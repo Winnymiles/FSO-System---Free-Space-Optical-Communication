@@ -42,7 +42,7 @@ const Gallery: React.FC = () => {
 
   return (
     <section id="gallery" className={`relative py-24 border-t ${
-      theme === 'dark' ? 'bg-black border-white/5' : 'bg-gray-50 border-gray-200'
+      theme === 'dark' ? 'bg-black border-white/5' : 'bg-[#eef0f4] border-gray-200'
     }`}>
       <div className="max-w-7xl mx-auto px-6 mb-12 flex justify-between items-end">
         <SectionTitle number="002" title="System Visualization" className="mb-0" />
