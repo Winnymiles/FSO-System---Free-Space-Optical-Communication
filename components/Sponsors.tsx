@@ -4,10 +4,10 @@ import { Sponsor } from '../types';
 import { ExternalLink, Building2 } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 
-const sponsors: Sponsor[] = [
-  { id: '001', name: 'National Research Council', tier: 'Industry Partner', since: 'Ground Station & Testing', website: 'nrc.canada.ca' },
-  { id: '002', name: 'Carleton University', tier: 'Academic', since: 'Research Partnership', website: 'carleton.ca' },
-  { id: '003', name: 'Algonquin College', tier: 'Academic', since: 'Optical Systems & Sensors Program', website: 'algonquincollege.com' },
+const sponsors = [
+  { id: '001', name: 'National Research Council', tier: 'Industry Partner', since: 'Ground Station & Testing', website: 'nrc.canada.ca', color: 'text-red-500' },
+  { id: '002', name: 'Carleton University', tier: 'Academic', since: 'Joint Program — Optical Systems & Sensors', website: 'carleton.ca', color: 'text-red-500' },
+  { id: '003', name: 'Algonquin College', tier: 'Academic', since: 'Joint Program — Optical Systems & Sensors', website: 'algonquincollege.com', color: 'text-green-500' },
 ];
 
 const Sponsors: React.FC = () => {
@@ -34,7 +34,7 @@ const Sponsors: React.FC = () => {
               <div className={`absolute bottom-0 right-0 w-2 h-2 border-r border-b group-hover:border-blue-400 ${theme === 'dark' ? 'border-white/30' : 'border-gray-300'}`}></div>
 
               <div>
-                <Building2 className="text-blue-500 mb-6" size={32} />
+                <Building2 className={`${sponsor.color} mb-6`} size={32} />
                 <div className="text-[10px] uppercase tracking-widest text-gray-500 mb-2">{sponsor.tier}</div>
                 <h3 className={`text-xl font-display font-medium group-hover:text-blue-500 transition-colors ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
                   {sponsor.name}

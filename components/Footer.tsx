@@ -1,9 +1,20 @@
-import React from 'react';
-import { Facebook, Twitter, Linkedin, Globe } from 'lucide-react';
+import React, { useState } from 'react';
+import { Linkedin, Twitter, Globe, Send } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 
 const Footer: React.FC = () => {
   const { theme } = useTheme();
+  const [contactForm, setContactForm] = useState({ name: '', message: '' });
+  const [sent, setSent] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const subject = encodeURIComponent(`FSO Project Inquiry from ${contactForm.name}`);
+    const body = encodeURIComponent(contactForm.message);
+    window.location.href = `mailto:Kameniwinny@ieee.org?subject=${subject}&body=${body}`;
+    setSent(true);
+    setTimeout(() => setSent(false), 3000);
+  };
 
   return (
     <footer className={`relative border-t overflow-hidden ${
@@ -30,7 +41,7 @@ const Footer: React.FC = () => {
           <div className="flex justify-center gap-4">
             <div className="flex -space-x-4">
               <img src="/Aarya.jpg" alt="Aarya" className="w-12 h-12 rounded-full border-2 border-black object-cover" />
-              <img src="/Samiksha.jpeg" alt="Samiksha" className="w-12 h-12 rounded-full border-2 border-black object-cover" />
+              <img src="/Samiksha.png" alt="Samiksha" className="w-12 h-12 rounded-full border-2 border-black object-cover" />
               <img src="/Winny.JPEG" alt="Winny" className="w-12 h-12 rounded-full border-2 border-black object-cover" />
             </div>
             <p className="text-sm text-gray-400 self-center font-mono">— Aarya, Samiksha & Winny</p>
@@ -61,36 +72,66 @@ const Footer: React.FC = () => {
 
             <div className="space-y-4">
               <label className={`text-xs font-mono uppercase tracking-widest block ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>Contact the Team</label>
-              <div className="flex max-w-sm">
-                <input type="email" placeholder="Contact email" className={`px-4 py-3 text-sm flex-1 focus:outline-none focus:border-blue-500/30 font-mono ${theme === 'dark' ? 'bg-white/5 border border-white/10 text-white' : 'bg-white border border-gray-300 text-gray-900'}`} />
-                <button className={`px-6 py-3 text-xs font-mono uppercase transition-colors ${theme === 'dark' ? 'bg-white/10 border-t border-r border-b border-white/10 text-white hover:bg-white hover:text-black' : 'bg-blue-500 text-white border border-blue-500 hover:bg-blue-600'}`}>
-                  Send
+              <form onSubmit={handleSubmit} className="flex flex-col gap-3 max-w-sm">
+                <input
+                  type="text"
+                  placeholder="Your name"
+                  required
+                  value={contactForm.name}
+                  onChange={(e) => setContactForm(prev => ({ ...prev, name: e.target.value }))}
+                  className={`px-4 py-3 text-sm focus:outline-none focus:border-blue-500/50 font-mono rounded ${
+                    theme === 'dark' ? 'bg-white/5 border border-white/10 text-white' : 'bg-white border border-gray-300 text-gray-900'
+                  }`}
+                />
+                <textarea
+                  placeholder="Your message"
+                  required
+                  rows={3}
+                  value={contactForm.message}
+                  onChange={(e) => setContactForm(prev => ({ ...prev, message: e.target.value }))}
+                  className={`px-4 py-3 text-sm focus:outline-none focus:border-blue-500/50 font-mono rounded resize-none ${
+                    theme === 'dark' ? 'bg-white/5 border border-white/10 text-white' : 'bg-white border border-gray-300 text-gray-900'
+                  }`}
+                />
+                <button
+                  type="submit"
+                  className={`flex items-center justify-center gap-2 px-6 py-3 text-xs font-mono uppercase tracking-widest rounded transition-colors ${
+                    theme === 'dark'
+                      ? 'bg-blue-500/20 border border-blue-500/30 text-blue-400 hover:bg-blue-500/30'
+                      : 'bg-blue-500 text-white border border-blue-500 hover:bg-blue-600'
+                  }`}
+                >
+                  <Send size={14} />
+                  {sent ? 'Opening Mail...' : 'Send Message'}
                 </button>
-              </div>
+              </form>
             </div>
           </div>
 
           <div className="flex flex-col justify-between items-start md:items-end">
              <div className="flex items-center gap-6 mb-12">
                <span className="text-xs font-mono uppercase tracking-widest text-gray-500 mr-4">Connect</span>
-               <a href="#" className={`transition-colors border p-2 rounded-full ${theme === 'dark' ? 'text-gray-400 hover:text-white border-white/10' : 'text-gray-500 hover:text-blue-500 border-gray-300'}`}><Linkedin size={16} /></a>
-               <a href="#" className={`transition-colors border p-2 rounded-full ${theme === 'dark' ? 'text-gray-400 hover:text-white border-white/10' : 'text-gray-500 hover:text-blue-500 border-gray-300'}`}><Twitter size={16} /></a>
-               <a href="#" className={`transition-colors border p-2 rounded-full ${theme === 'dark' ? 'text-gray-400 hover:text-white border-white/10' : 'text-gray-500 hover:text-blue-500 border-gray-300'}`}><Globe size={16} /></a>
+               <a href="https://www.linkedin.com/school/carloton-university/" target="_blank" rel="noreferrer" className={`transition-colors border p-2 rounded-full ${theme === 'dark' ? 'text-gray-400 hover:text-white border-white/10' : 'text-gray-500 hover:text-blue-500 border-gray-300'}`}><Linkedin size={16} /></a>
+               <a href="https://twitter.com/Aboretum" target="_blank" rel="noreferrer" className={`transition-colors border p-2 rounded-full ${theme === 'dark' ? 'text-gray-400 hover:text-white border-white/10' : 'text-gray-500 hover:text-blue-500 border-gray-300'}`}><Twitter size={16} /></a>
+               <a href="https://bitdegree.ca/index.php?Program=OSS" target="_blank" rel="noreferrer" className={`transition-colors border p-2 rounded-full ${theme === 'dark' ? 'text-gray-400 hover:text-white border-white/10' : 'text-gray-500 hover:text-blue-500 border-gray-300'}`}><Globe size={16} /></a>
              </div>
 
              <div className={`flex flex-wrap gap-x-8 gap-y-2 text-xs font-mono uppercase tracking-widest ${theme === 'dark' ? 'text-gray-500' : 'text-gray-600'}`}>
                <a href="#about" className={theme === 'dark' ? 'hover:text-white' : 'hover:text-blue-500'}>Project</a>
                <a href="#parts" className={theme === 'dark' ? 'hover:text-white' : 'hover:text-blue-500'}>System</a>
                <a href="#team" className={theme === 'dark' ? 'hover:text-white' : 'hover:text-blue-500'}>Team</a>
-               <a href="#" className={theme === 'dark' ? 'hover:text-white' : 'hover:text-blue-500'}>University</a>
+               <a href="https://bitdegree.ca/index.php?Program=OSS" target="_blank" rel="noreferrer" className={theme === 'dark' ? 'hover:text-white' : 'hover:text-blue-500'}>University</a>
              </div>
           </div>
         </div>
 
         <div className={`border-t pt-8 flex flex-col md:flex-row justify-between items-center text-[10px] font-mono uppercase tracking-wider ${theme === 'dark' ? 'border-white/5 text-gray-600' : 'border-gray-200 text-gray-500'}`}>
           <div className="flex gap-6 mb-4 md:mb-0">
-             <a href="#" className={theme === 'dark' ? 'hover:text-gray-400' : 'hover:text-blue-500'}>Project Documentation</a>
-             <a href="#" className={theme === 'dark' ? 'hover:text-gray-400' : 'hover:text-blue-500'}>Technical Paper</a>
+             <a href="#gallery" className={theme === 'dark' ? 'hover:text-gray-400' : 'hover:text-blue-500'}>Project Documentation</a>
+             <span className={`flex items-center gap-2 ${theme === 'dark' ? 'text-gray-700' : 'text-gray-400'}`}>
+               Technical Paper
+               <span className={`text-[8px] px-2 py-0.5 rounded-full border ${theme === 'dark' ? 'border-white/10 text-gray-600' : 'border-gray-300 text-gray-400'}`}>Coming Soon</span>
+             </span>
           </div>
           <div>
             © FSO Capstone Project 2025 — Carleton University & Algonquin College

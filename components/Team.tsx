@@ -13,20 +13,23 @@ const teamMembers = [
       'Latte Panda configuration',
       'MEMS mirror control',
       'Optical alignment',
-      'Pointing & Tracking algorithms'
+      'Pointing and Tracking algorithms',
+      'Machine vision algorithm',
+      'Camera Integration'
     ]
   },
   {
     name: 'Samiksha',
     role: 'Vision & Integration',
-    image: '/Samiksha.jpg',
+    image: '/Samiksha.png',
     linkedin: 'https://www.linkedin.com/in/samiksha-gupta-830352167/',
     portfolio: 'https://samikshagupta2002.github.io/',
     contributions: [
-      'Machine vision algorithm',
-      'Camera Integration',
       'Primary terminal integration',
-      'Overall system logic'
+      'Overall system logic',
+      'Retroreflector Integration',
+      'Environmental sensor readout',
+      'Solar/Battery system integration'
     ]
   },
   {
@@ -36,10 +39,14 @@ const teamMembers = [
     linkedin: 'https://www.linkedin.com/in/winny-kameni-194349185',
     portfolio: 'https://winny-portfolio-1.vercel.app/',
     contributions: [
-      'Retroreflector Integration',
       'Secondary terminal design',
-      'Mechanical Enclosure Design',
-      'Solar/Battery system'
+      'Sensor integration',
+      'Laser control',
+      'Motorized lid mechanisms',
+      'LED Alignment system',
+      'Environmental sensor readout',
+      'OLED Display',
+      'Mechanical Enclosure Design and Fabrication'
     ]
   },
 ];
@@ -90,7 +97,7 @@ const Team: React.FC = () => {
                     src={person.image}
                     alt={person.name}
                     className={`w-full h-full object-cover transition-all duration-500 ${
-                      person.role === 'Advisor' ? 'object-[center_45%]' : ''
+                      person.role === 'Advisor' ? 'object-[center_15%]' : ''
                     }`}
                   />
                 </div>
@@ -123,23 +130,23 @@ const Team: React.FC = () => {
       </div>
 
       <div className="relative w-full overflow-hidden pb-12">
-         <div className="flex justify-center items-center gap-6 md:gap-8 flex-wrap px-6">
+         <div className="flex justify-center items-stretch gap-6 md:gap-8 flex-wrap px-6">
 
             {teamMembers.map((member, index) => (
-              <div key={member.name} className="w-[280px] md:w-[300px] relative group">
+              <div key={member.name} className="w-[280px] md:w-[300px] relative group flex flex-col">
                 {/* Image Container */}
                 <div className={`w-full h-[200px] md:h-[220px] overflow-hidden rounded-t-lg border border-b-0 group-hover:border-blue-500/50 transition-colors ${theme === 'dark' ? 'border-white/10' : 'border-gray-200'}`}>
                   <img
                     src={member.image}
                     alt={member.name}
-                    className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ${
-                      member.name === 'Samiksha' ? 'object-[center_20%]' : 'object-top'
+                    className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 object-top ${
+                      member.name === 'Samiksha' ? 'scale-125 translate-y-4' : ''
                     }`}
                   />
                 </div>
 
                 {/* Info Container */}
-                <div className={`border border-t-0 rounded-b-lg p-5 group-hover:border-blue-500/50 transition-colors ${theme === 'dark' ? 'bg-[#0a0a0a] border-white/10' : 'bg-white border-gray-200'}`}>
+                <div className={`border border-t-0 rounded-b-lg p-5 group-hover:border-blue-500/50 transition-colors flex-1 ${theme === 'dark' ? 'bg-[#0a0a0a] border-white/10' : 'bg-white border-gray-200'}`}>
                   <div className="flex justify-between items-start mb-1">
                     <h3 className={`text-xl font-display font-bold ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>{member.name}</h3>
                     <div className="flex items-center gap-2">
@@ -170,7 +177,7 @@ const Team: React.FC = () => {
                   <div className={`border-t pt-4 text-[10px] font-mono ${theme === 'dark' ? 'border-white/10 text-gray-400' : 'border-gray-200 text-gray-600'}`}>
                     <span className="block text-gray-500 uppercase mb-2">Contributions</span>
                     <ul className="space-y-1">
-                      {member.contributions.slice(0, 3).map((item, i) => (
+                      {member.contributions.map((item, i) => (
                         <li key={i} className="flex items-start gap-1">
                           <span className="text-blue-500">•</span>
                           <span className={theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}>{item}</span>

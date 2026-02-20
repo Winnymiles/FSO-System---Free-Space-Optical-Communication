@@ -94,6 +94,21 @@ const About: React.FC = () => {
               <div className={`text-xs font-mono uppercase tracking-widest ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>Signal intensity maintained<br/>during indoor benchmarking</div>
            </div>
         </div>
+
+        {/* System Architecture Diagram */}
+        <div className="mt-24">
+          <h3 className={`text-lg font-display mb-8 flex items-center gap-3 ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
+            <span className="text-blue-500 font-mono text-xs">—</span>
+            Overall System Architecture
+          </h3>
+          <div className={`rounded-lg overflow-hidden border p-4 ${theme === 'dark' ? 'bg-white border-white/10' : 'bg-white border-gray-200 shadow-sm'}`}>
+            <img
+              src="/system-architecture.png"
+              alt="Overall System (Base) — Primary and Secondary Terminal architecture diagram"
+              className="w-full h-auto"
+            />
+          </div>
+        </div>
       </div>
     </section>
   );
