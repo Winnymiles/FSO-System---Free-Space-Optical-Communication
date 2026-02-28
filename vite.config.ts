@@ -11,6 +11,9 @@ export default defineConfig(({ mode }) => {
         allowedHosts: ['localhost', '127.0.0.1', '.loca.lt'],
       },
       plugins: [react()],
+      optimizeDeps: {
+        exclude: ['@google/genai', 'lucide-react'],
+      },
       define: {
         'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),
         'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY)
