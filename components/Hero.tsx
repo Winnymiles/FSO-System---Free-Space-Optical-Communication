@@ -32,13 +32,12 @@ const Hero: React.FC = () => {
               Capstone Project 2025-2026
             </p>
             <h1 className="text-4xl md:text-6xl lg:text-7xl leading-tight font-display font-bold tracking-wide text-white">
-              Free-Space<br/>
-              <span className="text-blue-400">Optical</span><br/>
-              Communication<br/>
-              System Alignment
+              High-Speed Free-Space<br/>
+              <span className="text-blue-400">Optical</span> Communication<br/>
+              Receiver
             </h1>
             <p className="text-lg md:text-xl mt-6 max-w-xl border-l-2 border-blue-500 pl-6 text-gray-300">
-              with Machine Vision Tracking for Drone and Fixed Target Communication
+              with Machine-Vision-Based Alignment and Tracking for Drone and Fixed Targets
             </p>
             <div className="flex flex-wrap gap-3 mt-6">
               <span className="text-sm font-mono uppercase tracking-widest px-5 py-2.5 rounded border text-blue-400 bg-blue-500/20 border-blue-500/30">MEMS Mirrors</span>
