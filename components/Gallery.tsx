@@ -57,8 +57,8 @@ const galleryData: { src: string; title: string; desc: string; type?: string; po
     type: "video",
   },
   {
-    src: "/system visualization/outdoor testing phase setup+alignment_processed.mp4",
-    poster: "/system visualization/outdoor testing phase setup+alignment_processed_poster.jpg",
+    src: "/system visualization/outdoor-setup-alignment.mp4",
+    poster: "/system visualization/outdoor-setup-alignment_poster.jpg",
     title: "Outdoor Testing — Setup & Alignment",
     desc: "Full outdoor deployment at the NRC field site — terminal setup, power-on sequence, and beam alignment phase.",
     type: "video",
