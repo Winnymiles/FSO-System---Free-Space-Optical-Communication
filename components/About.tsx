@@ -63,7 +63,7 @@ const About: React.FC = () => {
                <div className="absolute inset-4 border border-blue-500/10 rounded-full animate-reverse-spin"></div>
 
                <video
-                 src="/20251120_163524.MP4"
+                 src="/20251120_163524.mp4"
                  className="w-[80%] h-[80%] object-cover rounded-full"
                  autoPlay
                  muted

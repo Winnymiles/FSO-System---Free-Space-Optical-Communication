@@ -7,7 +7,7 @@ const teamMembers = [
   {
     name: 'Aarya',
     role: 'Hardware & Control',
-    image: '/aarya.png',
+    image: '/aarya.jpg',
     linkedin: 'https://www.linkedin.com/in/jaarya7/',
     contributions: [
       'Latte Panda configuration',
@@ -21,7 +21,7 @@ const teamMembers = [
   {
     name: 'Samiksha',
     role: 'Vision & Integration',
-    image: '/Samiksha.png',
+    image: '/Samiksha.jpg',
     linkedin: 'https://www.linkedin.com/in/samiksha-gupta-830352167/',
     portfolio: 'https://samikshagupta2002.github.io/',
     contributions: [

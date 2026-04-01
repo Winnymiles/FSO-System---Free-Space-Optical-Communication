@@ -23,7 +23,7 @@ const Footer: React.FC = () => {
       {/* Thanks for Visiting Section */}
       <div className="relative py-20 overflow-hidden">
         <video
-          src="/IMG_7570.MOV"
+          src="/IMG_7570.mp4"
           className="absolute inset-0 w-full h-full object-cover opacity-60"
           autoPlay
           muted
@@ -40,8 +40,8 @@ const Footer: React.FC = () => {
           </p>
           <div className="flex justify-center gap-4">
             <div className="flex -space-x-4">
-              <img src="/aarya.png" alt="Aarya" className="w-12 h-12 rounded-full border-2 border-black object-cover" />
-              <img src="/Samiksha.png" alt="Samiksha" className="w-12 h-12 rounded-full border-2 border-black object-cover" />
+              <img src="/aarya.jpg" alt="Aarya" className="w-12 h-12 rounded-full border-2 border-black object-cover" />
+              <img src="/Samiksha.jpg" alt="Samiksha" className="w-12 h-12 rounded-full border-2 border-black object-cover" />
               <img src="/Winny.JPEG" alt="Winny" className="w-12 h-12 rounded-full border-2 border-black object-cover" />
             </div>
             <p className="text-sm text-gray-400 self-center font-mono">— Aarya, Samiksha & Winny</p>

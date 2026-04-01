@@ -20,13 +20,13 @@ const testimonials = [
     quote: "Working on the pointing and tracking algorithms pushed us to bridge the gap between theoretical optics and real-world hardware constraints — every iteration taught us something new.",
     name: 'Aarya',
     role: 'Hardware & Control',
-    image: '/aarya.png',
+    image: '/aarya.jpg',
   },
   {
     quote: "This project was different from the usual academic work, it felt more real and hands-on. What made it unique was that we had full ownership of the idea, from planning to final execution, which made it feel like something we truly built ourselves. It challenged me, built my confidence, and gave me practical skills that will definitely help me in my future career.",
     name: 'Samiksha',
     role: 'Vision & Integration',
-    image: '/Samiksha.png',
+    image: '/Samiksha.jpg',
   },
   {
     quote: "There were weeks where nothing worked and we were basically starting from zero. But honestly, that's where you actually learn. Getting to design and build a real working optical system — enclosure and all — not just simulate it on paper, is something I'll carry with me.",

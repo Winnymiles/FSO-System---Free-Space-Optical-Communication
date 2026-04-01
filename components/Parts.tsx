@@ -82,7 +82,7 @@ const Parts: React.FC = () => {
             {/* Video */}
             <div className={`relative rounded-lg overflow-hidden border ${theme === 'dark' ? 'border-white/10' : 'border-gray-200'}`}>
               <video
-                src="/IMG_8967.MOV"
+                src="/IMG_8967.mp4"
                 className="w-full h-[300px] object-cover"
                 autoPlay
                 muted
