@@ -29,7 +29,7 @@ const testimonials = [
     image: '/Samiksha.png',
   },
   {
-    quote: "I would like to thank Dr. Wahab and Dr. Ross for the opportunity. I learned a lot and was able to convert lecture notes into real-world problem solving. This capstone pushed me to think like an engineer — designing, building, and troubleshooting a complete optical system from scratch.",
+    quote: "There were weeks where nothing worked and we were basically starting from zero. But honestly, that's where you actually learn. Getting to design and build a real working optical system — enclosure and all — not just simulate it on paper, is something I'll carry with me.",
     name: 'Winny',
     role: 'Systems & Mechanical',
     image: '/Winny.JPEG',

@@ -31,11 +31,11 @@ const About: React.FC = () => {
               </div>
             </div>
 
-            <p className={`text-sm leading-7 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
+            <p className={`text-base leading-7 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
               <span className="text-blue-500 font-medium">Primary Application:</span> Ideal for high-bandwidth, point-to-point links ("Last Mile") where laying physical cables is costly.
             </p>
 
-            <div className={`space-y-6 text-sm leading-7 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
+            <div className={`space-y-6 text-base leading-7 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
               <p>
                 The system is designed to enhance precision and reliability in optical communications involving UAVs, drones, and fixed targets. A closed-loop control mechanism utilizing a <span className="text-blue-500">Spiral Scan Algorithm</span> continuously monitors and adjusts the MEMS mirror orientation in real time, achieving sub-5 second lock-on speeds.
               </p>

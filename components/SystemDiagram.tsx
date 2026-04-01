@@ -3,7 +3,7 @@ import {
   Cpu, Radio, Zap, CloudRain,
   Camera, Eye, MonitorPlay, Microchip,
   Settings, Target, ShieldAlert, Monitor,
-  ToggleRight, ArrowRight, ArrowDown, ArrowLeftRight, Lightbulb
+  ToggleRight, ArrowRight, ArrowDown, ArrowLeft, ArrowLeftRight, Lightbulb
 } from 'lucide-react';
 
 const ComponentBox = ({ icon: Icon, title, theme = 'default', desc, className = '' }: {
@@ -61,8 +61,9 @@ const SensorSuiteBox = () => (
   </div>
 );
 
-const Arrow = ({ dir = 'down' }: { dir?: 'down' | 'right' | 'both' }) => {
+const Arrow = ({ dir = 'down' }: { dir?: 'down' | 'right' | 'left' | 'both' }) => {
   if (dir === 'right') return <ArrowRight className="text-slate-500 flex-shrink-0" size={18} />;
+  if (dir === 'left')  return <ArrowLeft className="text-slate-500 flex-shrink-0" size={18} />;
   if (dir === 'both')  return <ArrowLeftRight className="text-slate-500 flex-shrink-0" size={18} />;
   return <ArrowDown className="text-slate-500 flex-shrink-0" size={18} />;
 };
@@ -144,8 +145,9 @@ const SystemDiagram: React.FC = () => (
           ══════════════════════════════════════ */}
           <div className="flex flex-col items-center justify-center gap-16 pt-24 h-full">
             <div className="flex flex-col items-center gap-2 text-red-400 bg-slate-900/90 px-3 py-4 rounded-xl border border-red-500/30 shadow-[0_0_20px_rgba(239,68,68,0.15)]">
-              <ArrowLeftRight className="w-6 h-6 animate-pulse" />
-              <span className="text-[10px] font-bold uppercase tracking-widest text-center leading-tight">Optical<br/>Link</span>
+              <ArrowLeft className="w-5 h-5 animate-pulse" />
+              <ArrowLeft className="w-5 h-5 animate-pulse" style={{ animationDelay: '0.6s' }} />
+              <span className="text-[10px] font-bold uppercase tracking-widest text-center leading-tight mt-1">Optical<br/>Link</span>
             </div>
             <div className="flex flex-col items-center gap-2 text-slate-400 bg-slate-900/90 px-3 py-4 rounded-xl border border-slate-600">
               <ArrowLeftRight className="w-6 h-6" />
@@ -161,13 +163,13 @@ const SystemDiagram: React.FC = () => (
               Secondary Terminal
             </h3>
 
-            {/* MEMS Controller ↔ MEMS Mirror */}
+            {/* MEMS Mirror ← MEMS Controller (matching reference diagram) */}
             <div className="flex items-center gap-4">
-              <ComponentBox theme="orange" title="MEMS Controller" icon={Cpu} className="flex-1"
-                desc="Drives the MEMS mirror with precision voltage signals" />
-              <Arrow dir="both" />
               <ComponentBox theme="orange" title="MEMS Mirror" icon={Eye} className="flex-1"
                 desc="Micro-mirror that steers the laser beam with high precision" />
+              <Arrow dir="left" />
+              <ComponentBox theme="orange" title="MEMS Controller" icon={Cpu} className="flex-1"
+                desc="Drives the MEMS mirror with precision voltage signals" />
             </div>
 
             {/* Down arrows */}

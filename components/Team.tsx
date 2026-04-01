@@ -198,7 +198,7 @@ const Team: React.FC = () => {
          </div>
 
          <div className={`text-center mt-8 text-[10px] font-mono tracking-[0.3em] uppercase ${theme === 'dark' ? 'text-gray-600' : 'text-gray-500'}`}>
-            Group 2 - Capstone Project
+            Optical Systems & Sensors · Carleton University × Algonquin College · 2025/2026
          </div>
       </div>
     </section>

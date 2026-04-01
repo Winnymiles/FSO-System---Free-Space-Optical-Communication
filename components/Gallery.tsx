@@ -186,7 +186,7 @@ const Gallery: React.FC = () => {
       theme === 'dark' ? 'bg-black border-white/5' : 'bg-[#eef0f4] border-gray-200'
     }`}>
       <div className="max-w-7xl mx-auto px-6 mb-12 flex justify-between items-end">
-        <SectionTitle number="002" title="System Visualization" className="mb-0" />
+        <SectionTitle number="002" title="Lab & Field Documentation" className="mb-0" />
 
         <div className="hidden md:flex items-center gap-4">
           <span className="text-[10px] uppercase tracking-widest text-gray-500">View Data</span>
