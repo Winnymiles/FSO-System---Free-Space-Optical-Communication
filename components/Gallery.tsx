@@ -3,7 +3,7 @@ import SectionTitle from './SectionTitle';
 import { ArrowRight, ArrowLeft, Microscope, Activity, Play } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 
-const galleryData: { src: string; title: string; desc: string; type?: string; poster?: string; muted?: boolean; playbackRate?: number }[] = [
+const galleryData: { src: string; title: string; desc: string; type?: string; poster?: string; muted?: boolean; playbackRate?: number; objectPosition?: string }[] = [
   {
     src: "/system visualization/Team with dom.jpg",
     title: "The Team at NRC",
@@ -47,6 +47,7 @@ const galleryData: { src: string; title: string; desc: string; type?: string; po
     title: "Drone in Flight — FSO Link",
     desc: "Drone carrying the retroreflector in flight — validating the FSO optical link with a moving aerial target.",
     type: "video",
+    objectPosition: "center 20%",
   },
   {
     src: "/system visualization/retroreflector outdoor.MP4",
@@ -117,6 +118,7 @@ const VideoCard: React.FC<{ item: typeof galleryData[0]; idx: number; theme: str
         src={item.src}
         poster={item.poster}
         className="w-full h-full object-cover transition-all duration-700"
+        style={item.objectPosition ? { objectPosition: item.objectPosition } : undefined}
         loop
         playsInline
         muted
