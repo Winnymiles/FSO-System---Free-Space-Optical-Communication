@@ -35,7 +35,7 @@ const Sponsors: React.FC = () => {
 
               <div>
                 <Building2 className={`${sponsor.color} mb-6`} size={32} />
-                <div className="text-[10px] uppercase tracking-widest text-gray-500 mb-2">{sponsor.tier}</div>
+                <div className="text-xs uppercase tracking-widest text-gray-500 mb-2">{sponsor.tier}</div>
                 <h3 className={`text-xl font-display font-medium group-hover:text-blue-500 transition-colors ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
                   {sponsor.name}
                 </h3>
@@ -43,8 +43,8 @@ const Sponsors: React.FC = () => {
 
               <div className={`pt-8 border-t border-dashed flex justify-between items-end ${theme === 'dark' ? 'border-white/10' : 'border-gray-200'}`}>
                 <div>
-                  <div className={`text-[10px] uppercase tracking-wider mb-1 ${theme === 'dark' ? 'text-gray-600' : 'text-gray-500'}`}>Role</div>
-                  <div className={`text-xs font-mono ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>{sponsor.since}</div>
+                  <div className={`text-xs uppercase tracking-wider mb-1 ${theme === 'dark' ? 'text-gray-600' : 'text-gray-500'}`}>Role</div>
+                  <div className={`text-sm font-mono ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>{sponsor.since}</div>
                 </div>
                 <a href={`https://${sponsor.website}`} target="_blank" rel="noreferrer" className={`hover:text-blue-400 transition-colors ${theme === 'dark' ? 'text-white/20' : 'text-gray-400'}`}>
                   <ExternalLink size={16} />

@@ -7,7 +7,7 @@ const teamMembers = [
   {
     name: 'Aarya',
     role: 'Hardware & Control',
-    image: '/Aarya.jpg',
+    image: '/aarya.png',
     linkedin: 'https://www.linkedin.com/in/jaarya7/',
     contributions: [
       'Latte Panda configuration',
@@ -73,7 +73,7 @@ const Team: React.FC = () => {
     <section id="team" className={`py-24 overflow-hidden ${theme === 'dark' ? 'bg-black' : 'bg-[#eef0f4]'}`}>
       <div className="max-w-7xl mx-auto px-6 mb-12">
         <SectionTitle number="006" title="Capstone Team" />
-        <p className={`max-w-2xl font-light text-sm mb-8 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
+        <p className={`max-w-2xl font-light text-base mb-8 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
           This Free-Space Optical Communication System is the culmination of our Bachelor's degree. Our team combines expertise in optical engineering, control systems, and machine vision to solve complex challenges in FSO communication.
         </p>
         <p className="text-xs font-mono">
@@ -135,12 +135,14 @@ const Team: React.FC = () => {
             {teamMembers.map((member, index) => (
               <div key={member.name} className="w-[280px] md:w-[300px] relative group flex flex-col">
                 {/* Image Container */}
-                <div className={`w-full h-[200px] md:h-[220px] overflow-hidden rounded-t-lg border border-b-0 group-hover:border-blue-500/50 transition-colors ${theme === 'dark' ? 'border-white/10' : 'border-gray-200'}`}>
+                <div className={`w-full h-[200px] md:h-[220px] overflow-hidden rounded-t-lg border border-b-0 group-hover:border-blue-500/50 transition-colors relative ${theme === 'dark' ? 'border-white/10' : 'border-gray-200'}`}>
                   <img
                     src={member.image}
                     alt={member.name}
-                    className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 object-top ${
-                      member.name === 'Samiksha' ? 'scale-125 translate-y-4' : ''
+                    className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ${
+                      member.name === 'Samiksha' ? 'object-top scale-125 translate-y-4' :
+                      member.name === 'Aarya'    ? 'object-top' :
+                      'object-top'
                     }`}
                   />
                 </div>
@@ -172,10 +174,10 @@ const Team: React.FC = () => {
                       </a>
                     </div>
                   </div>
-                  <p className="text-xs text-blue-500 font-mono uppercase tracking-widest mb-4">{member.role}</p>
+                  <p className="text-sm text-blue-500 font-mono uppercase tracking-widest mb-4">{member.role}</p>
 
-                  <div className={`border-t pt-4 text-[10px] font-mono ${theme === 'dark' ? 'border-white/10 text-gray-400' : 'border-gray-200 text-gray-600'}`}>
-                    <span className="block text-gray-500 uppercase mb-2">Contributions</span>
+                  <div className={`border-t pt-4 text-xs font-mono ${theme === 'dark' ? 'border-white/10 text-gray-400' : 'border-gray-200 text-gray-600'}`}>
+                    <span className="block text-gray-500 uppercase mb-2 text-xs">Contributions</span>
                     <ul className="space-y-1">
                       {member.contributions.map((item, i) => (
                         <li key={i} className="flex items-start gap-1">

@@ -3,72 +3,86 @@ import SectionTitle from './SectionTitle';
 import { ArrowRight, ArrowLeft, Microscope, Activity, Play } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 
-const galleryData: { src: string; title: string; desc: string; type?: string; comingSoon?: boolean }[] = [
+const galleryData: { src: string; title: string; desc: string; type?: string; poster?: string; muted?: boolean; playbackRate?: number }[] = [
   {
-    src: "/fso-research.jpg",
+    src: "/system visualization/Team with dom.jpg",
     title: "The Team at NRC",
-    desc: "Figure 1: Group members in front of the NRC dome — Ground Station & Testing site."
+    desc: "Figure 1: The project team at the NRC dome — our primary outdoor testing ground for long-range FSO experiments.",
   },
   {
-    src: "/indoor-test.MP4",
-    title: "Indoor Test",
-    desc: "MEMS mirror beam steering demonstration — indoor alignment test.",
-    type: "video"
+    src: "/system visualization/indoor retroreflector.JPG",
+    title: "Indoor Retroreflector Setup",
+    desc: "Figure 2: Retroreflector mounted on the optical bench inside the lab for controlled beam-return testing.",
   },
   {
-    src: "/lab-mems-mirror.JPG",
-    title: "Retroreflector",
-    desc: "Figure 2: Retroreflector mounted on optical bench for beam return."
+    src: "/system visualization/indoor test.mov",
+    poster: "/system visualization/indoor test_poster.jpg",
+    title: "Indoor Beam Alignment Test",
+    desc: "Indoor alignment session — fine-tuning the MEMS mirror for optimal signal lock-on using Spiral Scan V2.",
+    type: "video",
   },
   {
-    src: "/lab-mems-sensor.JPG",
-    title: "MEMS with Mounted Camera",
-    desc: "Figure 3: MEMS mirror with mounted camera for vision-guided alignment."
+    src: "/system visualization/mems alignment.mov",
+    poster: "/system visualization/mems alignment_poster.jpg",
+    title: "MEMS Mirror Alignment",
+    desc: "MEMS mirror beam steering demonstration — closed-loop control achieving sub-5 second lock-on speed.",
+    type: "video",
   },
   {
-    src: "/lab-video-1.MOV",
-    title: "Lab Test Session 1",
-    desc: "Lab recording — optical alignment and calibration process.",
-    type: "video"
+    src: "/system visualization/laser alignment outdoor_processed.mov",
+    poster: "/system visualization/laser alignment outdoor_processed_poster.jpg",
+    title: "Laser Alignment — Outdoor",
+    desc: "Outdoor laser alignment test — steering a precision beam to a fixed target at extended range.",
+    type: "video",
+    muted: false,
   },
   {
-    src: "/lab-lattepanda-screen.JPG",
-    title: "LattePanda Control System",
-    desc: "Figure 4: LattePanda running MEMS SDK and Python control software via VS Code."
+    src: "/system visualization/drone with target.jpeg",
+    title: "Drone with Target Reflector",
+    desc: "Figure 3: Target retroreflector mounted on drone airframe for aerial FSO communication experiments.",
   },
   {
-    src: "/lab-video-2.MOV",
-    title: "Lab Test Session 2",
-    desc: "Lab recording — MEMS mirror response testing.",
-    type: "video"
+    src: "/system visualization/outdoor flying drone_extended.mov",
+    poster: "/system visualization/outdoor flying drone_extended_poster.jpg",
+    title: "Drone in Flight — FSO Link",
+    desc: "Drone carrying the retroreflector in flight — validating the FSO optical link with a moving aerial target.",
+    type: "video",
   },
   {
-    src: "/lab-video-3.MOV",
-    title: "Motor Lid Control Test",
-    desc: "Lab recording — motorized lid mechanism control and actuation test.",
-    type: "video"
+    src: "/system visualization/retroreflector outdoor.MP4",
+    poster: "/system visualization/retroreflector outdoor_poster.jpg",
+    title: "Outdoor Retroreflector",
+    desc: "Figure 4: Retroreflector deployed in the field — configured for long-range outdoor optical return testing.",
+    type: "video",
   },
   {
-    src: "",
-    title: "Outdoor Test Setup",
-    desc: "Outdoor range testing phase — field deployment and long-range alignment.",
-    comingSoon: true
+    src: "/system visualization/outdoor testing phase setup+alignment_processed.mov",
+    poster: "/system visualization/outdoor testing phase setup+alignment_processed_poster.jpg",
+    title: "Outdoor Testing — Setup & Alignment",
+    desc: "Full outdoor deployment at the NRC field site — terminal setup, power-on sequence, and beam alignment phase.",
+    type: "video",
+    muted: false,
+    playbackRate: 1.25,
   },
   {
-    src: "",
-    title: "Full Lab Configuration",
-    desc: "Complete indoor test setup — LattePanda, MEMS, and oscilloscope.",
-    comingSoon: true
+    src: "/system visualization/team with drone.jpeg",
+    title: "Team with Drone",
+    desc: "Figure 5: The team with the UAV used for aerial FSO tests — wrapping up a successful outdoor campaign.",
   },
 ];
 
 const VideoCard: React.FC<{ item: typeof galleryData[0]; idx: number; theme: string }> = ({ item, idx, theme }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
+
+  const fmt = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
 
   const handlePlay = () => {
     if (videoRef.current) {
       videoRef.current.muted = false;
+      if (item.playbackRate) videoRef.current.playbackRate = item.playbackRate;
       videoRef.current.play();
       setPlaying(true);
     }
@@ -79,40 +93,73 @@ const VideoCard: React.FC<{ item: typeof galleryData[0]; idx: number; theme: str
       videoRef.current.pause();
       videoRef.current.muted = true;
       videoRef.current.currentTime = 0;
+      videoRef.current.playbackRate = 1;
       setPlaying(false);
+      setCurrentTime(0);
     }
+  };
+
+  const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const t = Number(e.target.value);
+    if (videoRef.current) videoRef.current.currentTime = t;
+    setCurrentTime(t);
   };
 
   return (
     <div
       className={`relative flex-none snap-center overflow-hidden border transition-all duration-500 ${
-        playing ? 'w-[90vw] md:w-[750px] h-[450px]' : 'w-[85vw] md:w-[600px] h-[400px]'
-      } ${theme === 'dark' ? 'border-white/10 bg-[#0a0a0a]' : 'border-gray-200 bg-white shadow-sm'}`}
+        playing ? 'w-[90vw] md:w-[800px] h-[520px]' : 'w-[85vw] md:w-[650px] h-[480px]'
+      } ${theme === 'dark' ? 'border-white/10 bg-black' : 'border-gray-200 bg-black shadow-sm'}`}
       onMouseLeave={handlePause}
     >
       <video
         ref={videoRef}
         src={item.src}
-        className={`w-full h-full object-cover transition-all duration-700 ${playing ? 'opacity-100' : 'opacity-60'}`}
+        poster={item.poster}
+        className="w-full h-full object-cover transition-all duration-700"
         loop
         playsInline
         muted
+        onTimeUpdate={(e) => setCurrentTime(e.currentTarget.currentTime)}
+        onLoadedMetadata={(e) => setDuration(e.currentTarget.duration)}
       />
-      {/* Play button overlay */}
+
+      {/* Play button */}
       {!playing && (
-        <button
-          onClick={handlePlay}
-          className="absolute inset-0 z-20 flex items-center justify-center"
-        >
-          <div className="w-16 h-16 rounded-full bg-blue-500/80 backdrop-blur-sm flex items-center justify-center text-white hover:bg-blue-500 hover:scale-110 transition-all">
+        <button onClick={handlePlay} className="absolute inset-0 z-20 flex items-center justify-center">
+          <div className="relative w-16 h-16 rounded-full bg-blue-500/80 backdrop-blur-sm flex items-center justify-center text-white hover:bg-blue-500 hover:scale-110 transition-all">
             <Play size={28} className="ml-1" />
+            {item.playbackRate && item.playbackRate > 1 && (
+              <span className="absolute -top-1 -right-1 text-[9px] font-bold bg-blue-600 rounded px-1">{item.playbackRate}×</span>
+            )}
           </div>
         </button>
       )}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-8 pointer-events-none">
-        <span className="text-xs font-mono text-blue-500 mb-2">PROJECT ASSET {idx + 1}</span>
-        <h3 className="text-xl font-display font-bold text-white">{item.title}</h3>
-        <p className="text-xs text-gray-400 mt-2 font-mono">{item.desc}</p>
+
+      {/* Gradient overlay + info */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/10 to-transparent flex flex-col justify-end pointer-events-none">
+        {/* Seek slider */}
+        <div className="px-6 pb-1 pointer-events-auto">
+          <input
+            type="range"
+            min={0}
+            max={duration || 0}
+            step={0.05}
+            value={currentTime}
+            onChange={handleSeek}
+            onClick={(e) => e.stopPropagation()}
+            className="w-full h-[3px] accent-blue-500 cursor-pointer"
+          />
+          <div className="flex justify-between text-[10px] font-mono text-white/50 mt-1">
+            <span>{fmt(currentTime)}</span>
+            <span>{fmt(duration)}</span>
+          </div>
+        </div>
+        <div className="px-6 pb-6">
+          <span className="text-xs font-mono text-blue-500 mb-1 block">PROJECT ASSET {idx + 1}</span>
+          <h3 className="text-lg font-display font-bold text-white">{item.title}</h3>
+          <p className="text-xs text-gray-400 mt-1 font-mono">{item.desc}</p>
+        </div>
       </div>
     </div>
   );
@@ -164,7 +211,7 @@ const Gallery: React.FC = () => {
                 </div>
               </div>
             ) : (
-              <div key={idx} className={`relative flex-none w-[85vw] md:w-[600px] h-[400px] snap-center group overflow-hidden border ${theme === 'dark' ? 'border-white/10 bg-[#0a0a0a]' : 'border-gray-200 bg-white shadow-sm'}`}>
+              <div key={idx} className={`relative flex-none w-[85vw] md:w-[650px] h-[480px] snap-center group overflow-hidden border ${theme === 'dark' ? 'border-white/10 bg-black' : 'border-gray-200 bg-black shadow-sm'}`}>
                 <img
                   src={item.src}
                   alt={item.title}

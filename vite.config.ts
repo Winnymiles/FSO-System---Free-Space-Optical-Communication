@@ -12,7 +12,7 @@ export default defineConfig(({ mode }) => {
       },
       plugins: [react()],
       optimizeDeps: {
-        exclude: ['@google/genai', 'lucide-react'],
+        exclude: ['@google/genai'],
       },
       define: {
         'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),

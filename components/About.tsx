@@ -2,6 +2,7 @@ import React from 'react';
 import SectionTitle from './SectionTitle';
 import { Target } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
+import SystemDiagram from './SystemDiagram';
 
 const About: React.FC = () => {
   const { theme } = useTheme();
@@ -22,11 +23,11 @@ const About: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
               <div className={`p-4 border-l border-blue-500 ${theme === 'dark' ? 'bg-white/5' : 'bg-blue-50'}`}>
                 <h4 className={`font-display text-lg mb-1 ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>Mechanism</h4>
-                <p className={`text-xs ${theme === 'dark' ? 'text-gray-500' : 'text-gray-600'}`}>Utilizes lasers or LEDs as transmission source and photodiodes as receivers.</p>
+                <p className={`text-sm ${theme === 'dark' ? 'text-gray-500' : 'text-gray-600'}`}>Utilizes lasers or LEDs as transmission source and photodiodes as receivers.</p>
               </div>
               <div className={`p-4 border-l border-blue-500 ${theme === 'dark' ? 'bg-white/5' : 'bg-blue-50'}`}>
                 <h4 className={`font-display text-lg mb-1 ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>Spectrum</h4>
-                <p className={`text-xs ${theme === 'dark' ? 'text-gray-500' : 'text-gray-600'}`}>Near-infrared (850nm or 1550nm), avoiding congested RF bands.</p>
+                <p className={`text-sm ${theme === 'dark' ? 'text-gray-500' : 'text-gray-600'}`}>Near-infrared (850nm or 1550nm), avoiding congested RF bands.</p>
               </div>
             </div>
 
@@ -46,11 +47,11 @@ const About: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className={`p-4 border-l border-blue-500 ${theme === 'dark' ? 'bg-white/5' : 'bg-blue-50'}`}>
                 <h4 className={`font-display text-lg mb-1 ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>Compact & Lightweight</h4>
-                <p className={`text-xs ${theme === 'dark' ? 'text-gray-500' : 'text-gray-600'}`}>Ideal for space and ground-based optical systems.</p>
+                <p className={`text-sm ${theme === 'dark' ? 'text-gray-500' : 'text-gray-600'}`}>Ideal for space and ground-based optical systems.</p>
               </div>
               <div className={`p-4 border-l border-blue-500 ${theme === 'dark' ? 'bg-white/5' : 'bg-blue-50'}`}>
                 <h4 className={`font-display text-lg mb-1 ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>Precision Control</h4>
-                <p className={`text-xs ${theme === 'dark' ? 'text-gray-500' : 'text-gray-600'}`}>Enables accurate beam steering for real-time tracking.</p>
+                <p className={`text-sm ${theme === 'dark' ? 'text-gray-500' : 'text-gray-600'}`}>Enables accurate beam steering for real-time tracking.</p>
               </div>
             </div>
           </div>
@@ -83,15 +84,15 @@ const About: React.FC = () => {
         <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-8">
            <div className={`p-8 rounded-sm border-t-4 border-blue-600 ${theme === 'dark' ? 'glass-panel' : 'bg-white shadow-md'}`}>
               <div className={`text-3xl md:text-4xl font-display font-bold mb-2 ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>4.0s</div>
-              <div className={`text-xs font-mono uppercase tracking-widest ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>Spiral Scan V2 lock-on speed<br/>fastest algorithm tested</div>
+              <div className={`text-sm font-mono uppercase tracking-widest ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>Spiral Scan V2 lock-on speed<br/>fastest algorithm tested</div>
            </div>
            <div className={`p-8 rounded-sm border-t-4 border-blue-600 ${theme === 'dark' ? 'glass-panel' : 'bg-white shadow-md'}`}>
               <div className={`text-3xl md:text-4xl font-display font-bold mb-2 ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>MKR 1310</div>
-              <div className={`text-xs font-mono uppercase tracking-widest ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>Sensor polling every 2 seconds<br/>for real-time tracking</div>
+              <div className={`text-sm font-mono uppercase tracking-widest ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>Sensor polling every 2 seconds<br/>for real-time tracking</div>
            </div>
            <div className={`p-8 rounded-sm border-t-4 border-blue-600 ${theme === 'dark' ? 'glass-panel' : 'bg-white shadow-md'}`}>
               <div className={`text-3xl md:text-4xl font-display font-bold mb-2 ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>85%</div>
-              <div className={`text-xs font-mono uppercase tracking-widest ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>Signal intensity maintained<br/>during indoor benchmarking</div>
+              <div className={`text-sm font-mono uppercase tracking-widest ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>Signal intensity maintained<br/>during indoor benchmarking</div>
            </div>
         </div>
 
@@ -101,13 +102,7 @@ const About: React.FC = () => {
             <span className="text-blue-500 font-mono text-xs">—</span>
             Overall System Architecture
           </h3>
-          <div className={`rounded-lg overflow-hidden border p-4 ${theme === 'dark' ? 'bg-white border-white/10' : 'bg-white border-gray-200 shadow-sm'}`}>
-            <img
-              src="/system-architecture.png"
-              alt="Overall System (Base) — Primary and Secondary Terminal architecture diagram"
-              className="w-full h-auto"
-            />
-          </div>
+          <SystemDiagram />
         </div>
       </div>
     </section>

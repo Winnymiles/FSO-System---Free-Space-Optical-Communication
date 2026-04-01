@@ -20,7 +20,7 @@ const testimonials = [
     quote: "Working on the pointing and tracking algorithms pushed us to bridge the gap between theoretical optics and real-world hardware constraints — every iteration taught us something new.",
     name: 'Aarya',
     role: 'Hardware & Control',
-    image: '/Aarya.jpg',
+    image: '/aarya.png',
   },
   {
     quote: "This project was different from the usual academic work, it felt more real and hands-on. What made it unique was that we had full ownership of the idea, from planning to final execution, which made it feel like something we truly built ourselves. It challenged me, built my confidence, and gave me practical skills that will definitely help me in my future career.",
@@ -67,7 +67,7 @@ const Testimonials: React.FC = () => {
     <section id="testimonials" className={`py-24 overflow-hidden ${theme === 'dark' ? 'bg-[#060608]' : 'bg-[#f5f6fa]'}`}>
       <div className="max-w-7xl mx-auto px-6">
         <SectionTitle number="007" title="Testimonials" />
-        <p className={`max-w-2xl font-light text-sm mb-16 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
+        <p className={`max-w-2xl font-light text-base mb-16 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
           Hear from our team members and supervisors about the FSO project experience.
         </p>
 
@@ -89,14 +89,15 @@ const Testimonials: React.FC = () => {
               >
                 {/* Profile image */}
                 <div className="absolute -top-10 left-1/2 -translate-x-1/2">
-                  <div className={`w-20 h-20 rounded-full overflow-hidden border-4 ${
+                  <div className={`w-20 h-20 rounded-full overflow-hidden border-4 relative ${
                     theme === 'dark' ? 'border-[#060608]' : 'border-[#f5f6fa]'
                   }`}>
                     <img
                       src={t.image}
                       alt={t.name}
                       className={`w-full h-full object-cover ${
-                        t.name === 'Dr. Wahab Almuhtadi' ? 'object-[center_15%]' : ''
+                        t.name === 'Dr. Wahab Almuhtadi' ? 'object-[center_15%]' :
+                        t.name === 'Aarya' ? 'object-top' : ''
                       }`}
                     />
                   </div>
@@ -108,17 +109,17 @@ const Testimonials: React.FC = () => {
                 </div>
 
                 {/* Quote text */}
-                <p className={`text-sm leading-relaxed font-light mb-5 min-h-[80px] ${
+                <p className={`text-base leading-relaxed font-light mb-5 min-h-[80px] ${
                   theme === 'dark' ? 'text-gray-400' : 'text-gray-600'
                 }`}>
                   "{t.quote}"
                 </p>
 
                 {/* Author */}
-                <p className={`font-display text-sm font-bold tracking-wide ${
+                <p className={`font-display text-base font-bold tracking-wide ${
                   theme === 'dark' ? 'text-white' : 'text-gray-900'
                 }`}>{t.name}</p>
-                <p className="text-[10px] text-blue-500 font-mono uppercase tracking-widest mt-1">{t.role}</p>
+                <p className="text-xs text-blue-500 font-mono uppercase tracking-widest mt-1">{t.role}</p>
               </div>
             ))}
           </div>

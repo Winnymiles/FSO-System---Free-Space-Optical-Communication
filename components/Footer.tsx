@@ -40,7 +40,7 @@ const Footer: React.FC = () => {
           </p>
           <div className="flex justify-center gap-4">
             <div className="flex -space-x-4">
-              <img src="/Aarya.jpg" alt="Aarya" className="w-12 h-12 rounded-full border-2 border-black object-cover" />
+              <img src="/aarya.png" alt="Aarya" className="w-12 h-12 rounded-full border-2 border-black object-cover" />
               <img src="/Samiksha.png" alt="Samiksha" className="w-12 h-12 rounded-full border-2 border-black object-cover" />
               <img src="/Winny.JPEG" alt="Winny" className="w-12 h-12 rounded-full border-2 border-black object-cover" />
             </div>
@@ -127,14 +127,14 @@ const Footer: React.FC = () => {
 
         <div className={`border-t pt-8 flex flex-col md:flex-row justify-between items-center text-[10px] font-mono uppercase tracking-wider ${theme === 'dark' ? 'border-white/5 text-gray-600' : 'border-gray-200 text-gray-500'}`}>
           <div className="flex gap-6 mb-4 md:mb-0">
-             <a href="#gallery" className={theme === 'dark' ? 'hover:text-gray-400' : 'hover:text-blue-500'}>Project Documentation</a>
+             <a href="#about" onClick={(e) => { e.preventDefault(); document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' }); setTimeout(() => document.querySelector('.overall-system-arch')?.scrollIntoView({ behavior: 'smooth', block: 'center' }), 600); }} className={theme === 'dark' ? 'hover:text-gray-400 cursor-pointer' : 'hover:text-blue-500 cursor-pointer'}>Project Documentation</a>
              <span className={`flex items-center gap-2 ${theme === 'dark' ? 'text-gray-700' : 'text-gray-400'}`}>
                Technical Paper
                <span className={`text-[8px] px-2 py-0.5 rounded-full border ${theme === 'dark' ? 'border-white/10 text-gray-600' : 'border-gray-300 text-gray-400'}`}>Coming Soon</span>
              </span>
           </div>
           <div>
-            © FSO Capstone Project 2025 — Carleton University & Algonquin College
+            © FSO Capstone Project 2025/2026 — Carleton University & Algonquin College
           </div>
         </div>
       </div>

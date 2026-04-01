@@ -38,10 +38,10 @@ const Parts: React.FC = () => {
         <SectionTitle number="004" title="Proposed Method" />
 
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <p className={`text-lg font-light mb-4 ${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>
+          <p className={`text-xl font-light mb-4 ${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>
             The core of the system is a fully integrated MEMS mirror which dynamically adjusts its orientation using a closed-loop feedback mechanism.
           </p>
-          <p className={`text-xs font-mono max-w-xl mx-auto ${theme === 'dark' ? 'text-gray-500' : 'text-gray-600'}`}>
+          <p className={`text-sm font-mono max-w-xl mx-auto ${theme === 'dark' ? 'text-gray-500' : 'text-gray-600'}`}>
             This ensures real-time corrections to maintain optimal laser beam alignment. The control system continuously monitors light throughput and the target's visual image to minimize tracking errors.
           </p>
         </div>
